@@ -1,0 +1,1000 @@
+  748  rm -rf build-riscv/
+  749  cmake -S /home/esca/Jun/BitNet -B /home/esca/Jun/BitNet/build-riscv   -G Ninja   -DCMAKE_SYSTEM_NAME=Linux   -DCMAKE_SYSTEM_PROCESSOR=riscv64   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc   -DCMAKE_CXX_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-g++   -DBUILD_SHARED_LIBS=OFF   -DGGML_STATIC=ON   -DGGML_ACCELERATE=OFF   -DGGML_LASX=OFF   -DGGML_LSX=OFF   -DGGML_LLAMAFILE=OFF   -DGGML_OPENMP=OFF   -DCMAKE_C_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"   -DCMAKE_CXX_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"
+  750  cmake --build build-riscv -j$(nproc)
+  751  rm -rf build-riscv/
+  752  cmake -S /home/esca/Jun/BitNet -B /home/esca/Jun/BitNet/build-riscv   -G Ninja   -DCMAKE_SYSTEM_NAME=Linux   -DCMAKE_SYSTEM_PROCESSOR=riscv64   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc   -DCMAKE_CXX_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-g++   -DBUILD_SHARED_LIBS=OFF   -DGGML_STATIC=ON   -DGGML_ACCELERATE=OFF   -DGGML_LASX=OFF   -DGGML_LSX=OFF   -DGGML_LLAMAFILE=OFF   -DGGML_OPENMP=OFF   -DCMAKE_C_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"   -DCMAKE_CXX_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"
+  753  cmake --build build-riscv -j$(nproc)
+  754  rm -rf build-riscv/
+  755  cmake -S /home/esca/Jun/BitNet -B /home/esca/Jun/BitNet/build-riscv   -G Ninja   -DCMAKE_SYSTEM_NAME=Linux   -DCMAKE_SYSTEM_PROCESSOR=riscv64   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc   -DCMAKE_CXX_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-g++   -DBUILD_SHARED_LIBS=OFF   -DGGML_STATIC=ON   -DGGML_ACCELERATE=OFF   -DGGML_LASX=OFF   -DGGML_LSX=OFF   -DGGML_LLAMAFILE=OFF   -DGGML_OPENMP=OFF   -DCMAKE_C_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"   -DCMAKE_CXX_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"
+  756  cmake --build build-riscv -j$(nproc)
+  757  rm -rf build-riscv/
+  758  cmake -S /home/esca/Jun/BitNet -B /home/esca/Jun/BitNet/build-riscv   -G Ninja   -DCMAKE_SYSTEM_NAME=Linux   -DCMAKE_SYSTEM_PROCESSOR=riscv64   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc   -DCMAKE_CXX_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-g++   -DBUILD_SHARED_LIBS=OFF   -DGGML_STATIC=ON   -DGGML_ACCELERATE=OFF   -DGGML_LASX=OFF   -DGGML_LSX=OFF   -DGGML_LLAMAFILE=OFF   -DGGML_OPENMP=OFF   -DCMAKE_C_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"   -DCMAKE_CXX_FLAGS="-march=rv64gcv_zvfh -mabi=lp64d"
+  759  cmake --build build-riscv -j$(nproc)
+  760  history
+  761  scp -P 2685 /home/esca/Jun/BitNet/build-riscv/bin/llama-cli esca@163.152.30.120:/home/esca/Jun/
+  762  cmake -S /home/esca/Jun/BitNet -B /home/esca/Jun/BitNet/build-riscv   -G Ninja   -DCMAKE_SYSTEM_NAME=Linux   -DCMAKE_SYSTEM_PROCESSOR=riscv64   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-gcc   -DCMAKE_CXX_COMPILER=/home/esca/chipyard/.conda-env/riscv-tools/bin/riscv64-unknown-linux-gnu-g++   -DBUILD_SHARED_LIBS=OFF   -DGGML_STATIC=ON   -DGGML_ACCELERATE=OFF   -DGGML_LASX=OFF   -DGGML_LSX=OFF   -DGGML_LLAMAFILE=OFF   -DGGML_OPENMP=OFF   -DCMAKE_C_FLAGS="-march=rv64gcv -mabi=lp64d"   -DCMAKE_CXX_FLAGS="-march=rv64gcv -mabi=lp64d"
+  763  cmake --build build-riscv -j$(nproc)
+  764  scp -P 2685 /home/esca/Jun/BitNet/build-riscv/bin/llama-cli esca@163.152.30.120:/home/esca/Jun/
+  765  echo | $CC -dM -E -march=rv64gcv_zvfh -  | grep riscv_zvfh
+  766  conda activate bitnet-cpp
+  767  echo | $CC -dM -E -march=rv64gcv_zvfh -  | grep riscv_zvfh
+  768  grep -R "typedef.*vfloat16m1_t" $(dirname $($CC -print-file-name=include))/riscv_vector.h
+  769  echo '#include <riscv_vector.h>' | $CC -E -H -march=rv64gcv_zvfh -xc - 2>&1 | head
+  770  echo "$CC"
+  771  type -a $CC
+  772  conda activate /home/esca/chipyard/.conda-lock-env
+  773  pwd
+  774  cd chipyard
+  775  conda activate /home/esca/chipyard/.conda-lock-env
+  776  conda activate /home/esca/chipyard/.conda-lock-env
+  777  conda activate base
+  778  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/arch/riscv/include/uapi/asm/unistd.h
+  779  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/arch/riscv/include/uapi/asm
+  780  ls
+  781  cd ~
+  782  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/include/linux/
+  783  ls
+  784  vi syscalls.h
+  785  screen -r fsim0
+  786  conda activate /home/esca/chipyard/.conda-lock-env
+  787  cd mnt
+  788  cd /mnt
+  789  cd /root
+  790  cd hostdisk
+  791  ls
+  792  cd media
+  793  ;s
+  794  ls
+  795  sudo cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+  796  ls
+  797  cd ~
+  798  sudo umount /mnt/hostdisk
+  799  cd chipyard3/sims/firesim
+  800  source sourceme-manager.sh
+  801  firesim infrasetup
+  802  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+  803  firesim infrasetup
+  804  source sourceme-manager.sh
+  805  firesim infrasetup
+  806  firesim runworkload
+  807  firesim kill
+  808  cd ~
+  809  cd chipyard3/
+  810  cd op_queue/
+  811  ls
+  812  clear
+  813  make
+  814  cd chipyard/generators/gemmini/software/gemmini-rocc-tests/imagenet/
+  815  git diff .
+  816  cd ../../..
+  817  cd software/
+  818  grep -r "enqueue_fn"
+  819  cd ..
+  820  grep -r "enqueue_fn"
+  821  cd software/
+  822  ls
+  823  cd ..
+  824  ls
+  825  clear
+  826  ls
+  827  cd software/
+  828  ls
+  829  cd firemarshal/
+  830  ls
+  831  cd boards/firechip/linux/
+  832  ls
+  833  grep -r "enqueue_fn"
+  834  git diff .
+  835  grep -r "kthread_create"
+  836  find . -name "kernel.h"
+  837  find . -name "kthread.h"
+  838  find . -name "kthread.c"
+  839  find . -name "event.h"
+  840  grep -r "event_wait"
+  841  grep -r "wake_up_interruptible"
+  842  find . -name "wait.h"
+  843  find . -name "wait.c"
+  844  cd drivers/misc/
+  845  pwd
+  846  cd ~
+  847  cd chipyard3/
+  848  cd software/firemarshal/boards/firechip/linux/drivers/misc/
+  849  cd ..
+  850  find . -name "gemmini_queue.c"
+  851  cd ~
+  852  cd chipyard3/software/firemarshal/boards/firechip/linux
+  853  cd drivers/misc/
+  854  find . -name "phantom.c"
+  855  cd ~
+  856  cd chipyard3/software/firemarshal/
+  857  clear
+  858  source ../../env.sh
+  859  ./marshal clean br-base.json
+  860  ./marshal -v build br-base.json
+  861  ./marshal clean br-base.json
+  862  ./marshal -v build br-base.json
+  863  clear
+  864  ./marshal clean br-base.json
+  865  ./marshal -v build br-base.json
+  866  ./marshal -v install br-base.json
+  867  clear
+  868  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+  869  sudo truncate -s 16G "$IMG" 
+  870  LOOP=$(sudo losetup -f --show "$IMG") 
+  871  sudo e2fsck -f "$LOOP"
+  872  sudo resize2fs "$LOOP" 
+  873  sudo losetup -d "$LOOP"
+  874  sudo mount -o loop "$IMG" /mnt/hostdisk
+  875  conda activate /home/esca/chipyard/.conda-lock-env
+  876  cd chipyard
+  877  cd ..
+  878  cd chipyard3
+  879  source env.sh
+  880  ./marshal clean br-base.json
+  881  cd software/firemarshal/
+  882  ./marshal clean br-base.json
+  883  ./marshal -v build br-base.json
+  884  ./marshal clean br-base.json
+  885  ./marshal -v build br-base.json
+  886  cd chipyard3/
+  887  source env.sh
+  888  source env.sh
+  889  conda activate /home/esca/chipyard/.conda-lock-env
+  890  ls
+  891  cd chipyard
+  892  source env.sh 
+  893  ls
+  894  cd generators/gemmini/software/
+  895  ls
+  896  cd gemmini-rocc-tests/
+  897  ls
+  898  cd ~/chipyard3
+  899  source env.sh 
+  900  cd generators/gemmini/software/
+  901  cd gemmini-rocc-tests/
+  902  ls
+  903  ./build.sh 
+  904  ㅣㄴ
+  905  ls
+  906  cd imagenet/
+  907  ls
+  908  gcc resnet50.c -o resnet
+  909  lsd
+  910  ls
+  911  cd cd ~/chipyard/software/firemr
+  912  cd cd ~/chipyard/software/firemarshal/
+  913  ls
+  914  ./marshal clean br-base.json
+  915  cd ~/chipyard/software/firemarshal/
+  916  ./marshal clean br-base.json
+  917  ./marshal -v build br-base.json
+  918  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+  919  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+  920  sudo truncate -s 16G "$IMG" 
+  921  LOOP=$(sudo losetup -f --show "$IMG") 
+  922  sudo e2fsck -f "$LOOP"
+  923  sudo resize2fs "$LOOP" 
+  924  ./marshal -v install br-base.json
+  925  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+  926  sudo truncate -s 16G "$IMG" 
+  927  cd ~/chipyard3/software/firemarshal/
+  928  ls
+  929  ./marshal clean br-base.json
+  930  ./marshal -v build br-base.json
+  931  ./marshal clean br-base.json
+  932  ./marshal -v build br-base.json
+  933  ./marshal -v install br-base.json
+  934  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+  935  sudo truncate -s 16G "$IMG" 
+  936  LOOP=$(sudo losetup -f --show "$IMG") 
+  937  sudo e2fsck -f "$LOOP"
+  938  sudo resize2fs "$LOOP" 
+  939  sudo losetup -d "$LOOP"
+  940  sudo mount -o loop "$IMG" /mnt/hostdisk
+  941  ls
+  942  cd ~/chipyard3/sims/firesim
+  943  ls
+  944  source sourceme-manager.sh 
+  945  firesim infrasetup
+  946  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+  947  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+  948  mkdir /home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir
+  949  mkdir /home/esca/chipyard3/sims/firesim/sim_slot_0/
+  950  mkdir /home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir
+  951  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+  952  firesim infrasetup
+  953  firesim runworkload
+  954  firesim kill
+  955  cd ../../software/firemarshal/
+  956  source ../../env.sh 
+  957  ./marshal clean br-base.json
+  958  ./marshal -v build br-base.json
+  959  ./marshal clean br-base.json
+  960  ./marshal -v build br-base.json
+  961  ./marshal clean br-base.json
+  962  ./marshal -v build br-base.json
+  963  ./marshal clean br-base.json
+  964  ./marshal -v build br-base.json
+  965  ./marshal clean br-base.json
+  966  ./marshal -v build br-base.json
+  967  ./marshal clean br-base.json
+  968  ./marshal -v build br-base.json
+  969  ./marshal clean br-base.json
+  970  ./marshal -v build br-base.json
+  971  ./marshal -v install br-base.json
+  972  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+  973  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+  974  sudo truncate -s 16G "$IMG" 
+  975  LOOP=$(sudo losetup -f --show "$IMG") 
+  976  sudo e2fsck -f "$LOOP"
+  977  sudo resize2fs "$LOOP" 
+  978  sudo losetup -d "$LOOP"
+  979  sudo mount -o loop "$IMG" /mnt/hostdisk
+  980  cd ../../sims/firesim
+  981  ls
+  982  source sourceme-manager.sh 
+  983  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+  984  firesim infrasteup
+  985  firesim infrasetup
+  986  firesim runworkload
+  987  firesim kill
+  988  conda activate /home/esca/chipyard/.conda-lock-env
+  989  cd /mnt/
+  990  cd hostdisk
+  991  ls
+  992  cd media/
+  993  ls
+  994  cd
+  995  cd /mnt/hostdisk/media/
+  996  mkdir resnet
+  997  ls
+  998  cd resnet
+  999  sudo cp ~/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1000  ls
+ 1001  cd
+ 1002  umount /mnt/hostdisk 
+ 1003  sudo umount /mnt/hostdisk 
+ 1004  cd /mnt/hostdisk
+ 1005  ls
+ 1006  cd media/
+ 1007  ls
+ 1008  mkdir resnet
+ 1009  sudo cp ~/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1010  ls
+ 1011  cd /
+ 1012  sudo umount /mnt/hostdisk 
+ 1013  conda activate /home/esca/chipyard/.conda-lock-env
+ 1014  screen -r fsim0
+ 1015  conda activate /home/esca/chipyard/.conda-lock-env
+ 1016  cd ~/chipyard3
+ 1017  source env.sh 
+ 1018  which riscv64-unknown-linux-gnu-gcc
+ 1019  칟ㅁㄱ
+ 1020  clear
+ 1021  cd op_queue/
+ 1022  ls
+ 1023  make
+ 1024  uname -r
+ 1025  make
+ 1026  source ../env.sh 
+ 1027  cd ../generators/gemmini/software/gemmini-rocc-tests/
+ 1028  ls
+ 1029  ./build.sh
+ 1030  ./build.sh
+ 1031  ./build.sh
+ 1032  cd /home/esca/Kyu/2 resnets
+ 1033  cd /home/esca/Kyu/2\ resnets/
+ 1034  ls
+ 1035  rm -rf multithread_2resnets.riscv 
+ 1036  ls
+ 1037  conda activate base
+ 1038  conda activate /home/esca/chipyard/.conda-lock-env
+ 1039  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/include/linux/
+ 1040  ls
+ 1041  cd ~
+ 1042  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/arch/riscv/include/uapi/asm/unistd.h
+ 1043  /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/arch/riscv/include/uapi/asm
+ 1044  cd /home/esca/chipyard3/software/firemarshal/boards/firechip/linux/arch/riscv/include/uapi/asm
+ 1045  ls
+ 1046  cd ~
+ 1047  conda activate /home/esca/chipyard/.conda-lock-env
+ 1048  screen -r fsim0
+ 1049  conda activate /home/esca/chipyard/.conda-lock-env
+ 1050  conda activate /home/esca/chipyard/.conda-lock-env
+ 1051  source sourceme-manager.sh
+ 1052  cd chipyard3
+ 1053  source sourceme-manager.sh
+ 1054  cd ..
+ 1055  cd /chipyard/sims/firesim/deploy/)
+ 1056  cd /chipyard/sims/firesim/deploy/
+ 1057  cd chipyard/sims/firesim/deploy/
+ 1058  source sourceme-manager.sh
+ 1059  cd `
+ 1060  ~
+ 1061  cd ~
+ 1062  clear
+ 1063  cd chipyard
+ 1064  cd ..
+ 1065  cd chipyard3
+ 1066  find . -name "sourceme-manager.sh"
+ 1067  cd sims/firesim
+ 1068  source sourceme-manager.sh
+ 1069  firesim infrasetup
+ 1070  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1071  firesim infrasetup
+ 1072  firesim runworkload
+ 1073  firesim kill
+ 1074  conda activate /home/esca/chipyard/.conda-lock-env
+ 1075  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1076  sudo truncate -s 16G "$IMG" 
+ 1077  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1078  sudo e2fsck -f "$LOOP"
+ 1079  sudo resize2fs "$LOOP" 
+ 1080  sudo losetup -d "$LOOP"
+ 1081  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1082  cd /mut
+ 1083  cd /mnt
+ 1084  ls
+ 1085  cd /hostdisk
+ 1086  cd hostdisk
+ 1087  ls
+ 1088  cd media
+ 1089  ls
+ 1090  sudo cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1091  ls
+ 1092  cd ~
+ 1093  cd chipyard3/sims/firesim
+ 1094  source sourceme-manager.sh
+ 1095  firesim infrasetup
+ 1096  firesim runworkload
+ 1097  firesim kill
+ 1098  cd sim_slot_0/
+ 1099  ls
+ 1100  conda activate /home/esca/chipyard/.conda-lock-env
+ 1101  cd chipyard3/
+ 1102  source env.hs
+ 1103  source env.sh
+ 1104  cd software/firemarshal
+ 1105  ./marshal clean br-base.json
+ 1106  ./marshal -v build br-base.json
+ 1107  ./marshal clean br-base.json
+ 1108  clear
+ 1109  ./marshal clean br-base.json
+ 1110  ./marshal -v build br-base.json
+ 1111  clear
+ 1112  ./marshal clean br-base.json
+ 1113  ./marshal -v build br-base.json
+ 1114  conda activate /home/esca/chipyard/.conda-lock-env
+ 1115  cd ~
+ 1116  clear
+ 1117  cd chipyard3/
+ 1118  source env.sh
+ 1119  ./marshal clean br-base.json
+ 1120  cd software/firemarshal/
+ 1121  ./marshal clean br-base.json
+ 1122  ./marshal -v build br-base.json
+ 1123  c./marshal -v install br-base.json
+ 1124  ./marshal -v install br-base.json
+ 1125  source sourceme-manager.sh
+ 1126  clear
+ 1127  cd ~
+ 1128  cd chipyard3/generators/gemmini/software/gemmini-rocc-tests/
+ 1129  cd imagenet/
+ 1130  cd .. 
+ 1131  cd gemmini-rocc-tests/
+ 1132  ../../../../source env.sh
+ 1133  cd ~
+ 1134  cd chipyard3/
+ 1135  source env.sh
+ 1136  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1137  ls
+ 1138  ./build.sh
+ 1139  cd ~
+ 1140  clear
+ 1141  cd chipyard3/s
+ 1142  cd chipyard3/
+ 1143  source env.sh
+ 1144  cd software/firemarshal/
+ 1145  ./marshal clean br-base.json
+ 1146  ./marshal -v build br-base.json
+ 1147  ./marshal -v install br-base.json
+ 1148  screen -r fsim0
+ 1149  conda activate /home/esca/chipyard/.conda-lock-env
+ 1150  conda activate base
+ 1151  cd chipyard/sims/firesim
+ 1152  source sourceme-manager.sh 
+ 1153  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1154  firesim infrasetup
+ 1155  cd ~/chipyard3/sims/firesim
+ 1156  ls
+ 1157  source sourceme-manager.sh 
+ 1158  firesim infrasetup
+ 1159  source sourceme-manager.sh 
+ 1160  firesim infrasetup
+ 1161  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1162  firesim infrasetup
+ 1163  source ../../env.sh 
+ 1164  ls
+ 1165  conda activate base
+ 1166  cd chipyard3/software/firemarshal/boards/firechip/linux/kernel/
+ 1167  find . -name "op_queue.o"
+ 1168  cd /mnt/hostdisk
+ 1169  ls
+ 1170  cd media/
+ 1171  ls
+ 1172  cd ~/
+ 1173  cd chipyard
+ 1174  cd ~/chipyard3
+ 1175  ls
+ 1176  source env.sh 
+ 1177  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1178  ./build.sh 
+ 1179  cd ../../../../sims/firesim
+ 1180  source sourceme-manager.sh 
+ 1181  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1182  firesim infrasetup
+ 1183  firesim kill
+ 1184  firesim infrasetup
+ 1185  firesim runworkload
+ 1186  firesim kill
+ 1187  conda activate base
+ 1188  cd /mnt/hostdisk
+ 1189  ls
+ 1190  cd media/
+ 1191  ls
+ 1192  mkdir resnet
+ 1193  sudo cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1194  ls
+ 1195  sudo cp /home/esca/Kyu/2 resnets/multithread_2resnets.riscv ./
+ 1196  sudo cp /home/esca/Kyu/2\ resnets/multithread_2resnets.riscv ./
+ 1197  ls
+ 1198  cd ~
+ 1199  sudo umount /mnt/hostdisk
+ 1200  cd /mnt/hostdisk
+ 1201  cd media/
+ 1202  ls
+ 1203  sudo cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1204  sudo cp /home/esca/Kyu/2\ resnets/multithread_2resnets.riscv ./
+ 1205  ls
+ 1206  cd ~
+ 1207  sudo umount /mnt/hostdisk
+ 1208  conda activate base
+ 1209  conda activate base
+ 1210  screen -r fsim0
+ 1211  conda activate base
+ 1212  conda activate /home/esca/chipyard/.conda-lock-env
+ 1213  cd chipyard
+ 1214  conda deactivate
+ 1215  cd software/firemarshal/
+ 1216  ls
+ 1217  ./marshal -v build br-base.json
+ 1218  cd ../..
+ 1219  ls
+ 1220  source env.sh 
+ 1221  cd software/firemarshal/
+ 1222  ./marshal -v build br-base.json
+ 1223  ```jsx
+ 1224  ./marshal clean br-base.json
+ 1225  ./marshal -v build br-base.json
+ 1226  ./marshal -v install br-base.json
+ 1227  ./marshal -v install br-base.json
+ 1228  cd ../../..
+ 1229  conda activate base
+ 1230  git clone https://github.com/ucb-bar/chipyard.git
+ 1231  git clone https://github.com/ucb-bar/chipyard.git chipyard3
+ 1232  cd chipyard3
+ 1233  gir checkout 1.13.0
+ 1234  git checkout 1.13.0
+ 1235  ./build-setup.sh riscv-tools
+ 1236  source env.sh
+ 1237  cd software/firemarshal/
+ 1238  ./marshal -v install br-base.json
+ 1239  ./marshal clean br-base.json
+ 1240  ./marshal -v build br-base.json
+ 1241  ./marshal clean br-base.json
+ 1242  ./marshal -v build br-base.json
+ 1243  ./marshal clean br-base.json
+ 1244  ./marshal -v build br-base.json
+ 1245  ./marshal clean br-base.json
+ 1246  ./marshal -v build br-base.json
+ 1247  ./marshal -v install br-base.json
+ 1248  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+ 1249  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1250  sudo truncate -s 16G "$IMG" 
+ 1251  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1252  sudo e2fsck -f "$LOOP"
+ 1253  sudo resize2fs "$LOOP" 
+ 1254  sudo losetup -d "$LOOP"
+ 1255  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1256  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1257  sudo truncate -s 16G "$IMG" 
+ 1258  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1259  sudo e2fsck -f "$LOOP"
+ 1260  sudo truncate -s 16G "$IMG" 
+ 1261  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1262  sudo e2fsck -f "$LOOP"
+ 1263  "$LOOP" 
+ 1264  sudo losetup -d "$LOOP"
+ 1265  sudo sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1266  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1267  sudo umount /mnt/hostdisk 
+ 1268  ./marshal clean br-base.json
+ 1269  ./marshal -v build br-base.json
+ 1270  ./marshal -v install br-base.json
+ 1271  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+ 1272  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1273  sudo truncate -s 16G "$IMG" 
+ 1274  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1275  sudo e2fsck -f "$LOOP"
+ 1276  sudo resize2fs "$LOOP" 
+ 1277  sudo losetup -d "$LOOP"
+ 1278  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1279  cd ~/chipyard3/
+ 1280  source env.sh 
+ 1281  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1282  ls
+ 1283  ./build.sh
+ 1284  conda activate base
+ 1285  conda activate /home/esca/chipyard/.conda-lock-env
+ 1286  cd chipyard3/
+ 1287  ls
+ 1288  find . -name "spinlock.h"
+ 1289  cd software/firemarshal/boards/firechip/
+ 1290  find . -name "spinlock.h"
+ 1291  conda activate /home/esca/chipyard/.conda-lock-env
+ 1292  grep -r "DEFINE_SPINLOCK"
+ 1293  cd ..
+ 1294  cd /../../
+ 1295  cd~
+ 1296  cd ~
+ 1297  cd chipyard
+ 1298  cd //
+ 1299  cd ~
+ 1300  cd chipyard3/
+ 1301  claer
+ 1302  clear
+ 1303  cd sims/firesim/sim_slot_0/
+ 1304  ls
+ 1305  clear
+ 1306  cd ../..
+ 1307  cd ..
+ 1308  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1309  ls
+ 1310  cd ../../../../
+ 1311  source env.sh
+ 1312  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1313  ./build.sh
+ 1314  cd ../../../../..
+ 1315  cd chipyard3/
+ 1316  cd software/firemarshal/
+ 1317  ./marshal clean br-base.json
+ 1318  ./marshal -v build br-base.json
+ 1319  ./marshal -v install br-base.json
+ 1320  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+ 1321  sudo truncate -s 16G "$IMG" 
+ 1322  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1323  sudo e2fsck -f "$LOOP"
+ 1324  sudo resize2fs "$LOOP" 
+ 1325  sudo losetup -d "$LOOP"
+ 1326  clear
+ 1327  cd ..
+ 1328  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1329  ../../../../source env.sh
+ 1330  ../../../source env.sh
+ 1331  cd 
+ 1332  source env.sh
+ 1333  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1334  ./build.sh
+ 1335  clear
+ 1336  ./build.sh
+ 1337  cd ../../..
+ 1338  cd ..
+ 1339  cd software/firemarshal/
+ 1340  ../../source env.sh
+ 1341  cd ../..
+ 1342  source env.sh
+ 1343  cd software/firemarshal/
+ 1344  ./marshal clean br-base.json
+ 1345  ./marshal -v build br-base.json
+ 1346  ./marshal -v install br-base.json
+ 1347  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+ 1348  sudo truncate -s 16G "$IMG" 
+ 1349  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1350  sudo e2fsck -f "$LOOP"
+ 1351  sudo resize2fs "$LOOP" 
+ 1352  sudo losetup -d "$LOOP"
+ 1353  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1354  sudo umount /mnt/hostdisk
+ 1355  cd ~
+ 1356  cd chipyard3/sims/firesim
+ 1357  source sourceme-manager.sh
+ 1358  firesim infrasetup
+ 1359  firesim kill
+ 1360  firesim infrasetup
+ 1361  firesim runworkload
+ 1362  firesim kill
+ 1363  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1364  cd ~
+ 1365  cd /mnt/hostdisk
+ 1366  ls
+ 1367  cd meda
+ 1368  cd media/
+ 1369  ls
+ 1370  sudo umount /mnt/hostdisk
+ 1371  cd ../../..
+ 1372  sudo umount /mnt/hostdisk
+ 1373  cd ~
+ 1374  sudo umount /mnt/hostdisk
+ 1375  clear
+ 1376  ./marshal clean br-base.json
+ 1377  cd chipyard3/
+ 1378  source env.sh
+ 1379  ./marshal clean br-base.json
+ 1380  cd software/firemarshal/
+ 1381  ./marshal clean br-base.json
+ 1382  ./marshal -v build br-base.json
+ 1383  ./marshal -v install br-base.json
+ 1384  IMG=~/chipyard/software/firemarshal/images/firechip/br-base/br-base.img
+ 1385  sudo truncate -s 16G "$IMG" 
+ 1386  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1387  sudo e2fsck -f "$LOOP"
+ 1388  sudo resize2fs "$LOOP" 
+ 1389  sudo losetup -d "$LOOP"
+ 1390  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1391  cd ../../..
+ 1392  cd ~
+ 1393  cd /mnt/hostdisk
+ 1394  cd media/
+ 1395  ls
+ 1396  rm -rf resnet50-linux 
+ 1397  ls
+ 1398  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1399  ls
+ 1400  cd ~
+ 1401  sudo umount /mnt/hostdisk
+ 1402  cd chipyard3/sims/firesim
+ 1403  source source sourceme-manager.sh
+ 1404  source sourceme-manager.sh
+ 1405  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1406  firesim infrasetup
+ 1407  firesim runworkload
+ 1408  firesim kill
+ 1409  clear
+ 1410  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1411  cd conda activate /home/esca/chipyard/.conda-lock-env
+ 1412  cd chipyard3/
+ 1413  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1414  clear
+ 1415  cd ..
+ 1416  cd /mnt
+ 1417  ls
+ 1418  cd hostdisk
+ 1419  ls
+ 1420  cd media
+ 1421  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1422  cd ../../..
+ 1423  cd ~
+ 1424  clear
+ 1425  screen -r fsim0
+ 1426  conda activate /home/esca/chipyard/.conda-lock-env
+ 1427  cd ../..
+ 1428  source env.sh
+ 1429  cd software/firemarshal/
+ 1430  ./marshal clean br-base.json
+ 1431  ./marshal -v build br-base.json
+ 1432  ./marshal -v install br-base.json
+ 1433  cd ../..
+ 1434  ls
+ 1435  cd sims/firesim
+ 1436  source sourceme-manager.sh
+ 1437  firesim infrasetup
+ 1438  firesim runworkload
+ 1439  firesim kill
+ 1440  cd ../..
+ 1441  source env.sh
+ 1442  cd software/firemarshal/
+ 1443  ./marshal clean br-base.json
+ 1444  ./marshal -v build br-base.json
+ 1445  ./marshal -v install br-base.json
+ 1446  cd ../..
+ 1447  ./marshal clean br-base.json
+ 1448  cd software/firemarshal/
+ 1449  ./marshal clean br-base.json
+ 1450  ./marshal -v build br-base.json
+ 1451  ./marshal -v install br-base.json
+ 1452  clear
+ 1453  ./marshal clean br-base.json
+ 1454  ./marshal -v build br-base.json
+ 1455  ./marshal -v install br-base.json
+ 1456  clear
+ 1457  ./marshal -v build br-base.json
+ 1458  ./marshal clean br-base.json
+ 1459  ./marshal -v build br-base.json
+ 1460  ./marshal -v install br-base.json
+ 1461  clear
+ 1462  cd ../..
+ 1463  source env.sh
+ 1464  cd software/firemarshal/
+ 1465  ./marshal clean br-base.json
+ 1466  ./marshal -v build br-base.json
+ 1467  ./marshal clean br-base.json
+ 1468  ./marshal -v build br-base.json
+ 1469  clear
+ 1470  ./marshal clean br-base.json
+ 1471  ./marshal -v build br-base.json
+ 1472  ./marshal -v install br-base.json
+ 1473  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1474  sudo truncate -s 16G "$IMG" 
+ 1475  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1476  sudo e2fsck -f "$LOOP"
+ 1477  sudo resize2fs "$LOOP" 
+ 1478  sudo losetup -d "$LOOP"
+ 1479  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1480  ./marshal clean br-base.json
+ 1481  ./marshal -v build br-base.json
+ 1482  ./marshal -v install br-base.json
+ 1483  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1484  sudo truncate -s 16G "$IMG" 
+ 1485  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1486  sudo e2fsck -f "$LOOP"
+ 1487  sudo resize2fs "$LOOP" 
+ 1488  sudo losetup -d "$LOOP"
+ 1489  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1490  clear
+ 1491  ./marshal clean br-base.json
+ 1492  ./marshal -v install br-base.json
+ 1493  ./marshal clean br-base.json
+ 1494  ./marshal -v build br-base.json
+ 1495  ./marshal -v install br-base.json
+ 1496  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1497  sudo truncate -s 16G "$IMG" 
+ 1498  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1499  sudo e2fsck -f "$LOOP"
+ 1500  sudo resize2fs "$LOOP" 
+ 1501  sudo losetup -d "$LOOP"
+ 1502  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1503  cd chipyard3/
+ 1504  conda deactivate
+ 1505  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1506  sudo truncate -s 16G "$IMG" 
+ 1507  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1508  sudo e2fsck -f "$LOOP"
+ 1509  sudo resize2fs "$LOOP" 
+ 1510  sudo losetup -d "$LOOP"
+ 1511  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1512  cd ~
+ 1513  cd /mnt/hostdisk
+ 1514  ls
+ 1515  cd media/
+ 1516  ls
+ 1517  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1518  ls
+ 1519  cd ~
+ 1520  sudo umount /mnt/hostdisk
+ 1521  ls
+ 1522  cd /mnt
+ 1523  ls
+ 1524  cd hostdisk
+ 1525  ls
+ 1526  cd media/
+ 1527  ls
+ 1528  cd ~
+ 1529  sudo umount /mnt/hostdisk
+ 1530  cd ~
+ 1531  sudo umount /mnt/hostdisk
+ 1532  cd /mnt/hostdisk
+ 1533  cd ~
+ 1534  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1535  sudo umount /mnt/hostdisk
+ 1536  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1537  cd /mnt/hostdisk/media/
+ 1538  ls
+ 1539  cd ~
+ 1540  sudo umount /mnt/hostdisk
+ 1541  clear
+ 1542  screen -r fsim0
+ 1543  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1544  sudo truncate -s 16G "$IMG" 
+ 1545  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1546  sudo e2fsck -f "$LOOP"
+ 1547  sudo resize2fs "$LOOP" 
+ 1548  sudo losetup -d "$LOOP"
+ 1549  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1550  cd /mnt/hostdisk/media/
+ 1551  ls
+ 1552  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1553  ls
+ 1554  cd ~
+ 1555  sudo umount /mnt/hostdisk
+ 1556  cd chipyard3/sims/firesim
+ 1557  source sourceme-manager.sh
+ 1558  firesim infrasetup
+ 1559  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1560  firesim infrasetup
+ 1561  firesim runworkload
+ 1562  firesim kill
+ 1563  source sourceme-manager.sh
+ 1564  firesim infrasetup
+ 1565  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1566  firesim infrasetup
+ 1567  firesim runworkload
+ 1568  firesim kill
+ 1569  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1570  firesim infrasetup
+ 1571  firesim runworkload
+ 1572  firesim kill
+ 1573  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1574  firesim infrasetup
+ 1575  firesim runworkload
+ 1576  firesim kill
+ 1577  clear
+ 1578  source sourceme-manager.sh.
+ 1579  source sourceme-manager.sh
+ 1580  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1581  firesim infrasetup
+ 1582  firesim runworkload
+ 1583  firesim kill
+ 1584  source sourceme-manager.sh
+ 1585  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1586  firesim infrasetup
+ 1587  firesim runworkload
+ 1588  firesim kill
+ 1589  ./marshal clean br-base.json
+ 1590  source sourceme-manager.sh
+ 1591  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1592  firesim infrasetup
+ 1593  firesim runworkload
+ 1594  firesim kill
+ 1595  rsync -avh --progress --inplace   --rsh='ssh -o StrictHostKeyChecking=no'   /home/esca/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img   esca@localhost:/home/esca/chipyard3/sims/firesim/sim_slot_0/rsyncdir/br-base0-br-base.img
+ 1596  firesim infrasetup
+ 1597  firesim runworkload
+ 1598  firesim kill
+ 1599  screen -r fsim0
+ 1600  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1601  sudo truncate -s 16G "$IMG" 
+ 1602  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1603  sudo e2fsck -f "$LOOP"
+ 1604  sudo resize2fs "$LOOP" 
+ 1605  sudo losetup -d "$LOOP"
+ 1606  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1607  cd /mnt/hostdisk/media/
+ 1608  ls
+ 1609  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1610  cd ~
+ 1611  sudo umount /mnt/hostdisk
+ 1612  screen -r fsim0
+ 1613  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1614  sudo truncate -s 16G "$IMG" 
+ 1615  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1616  sudo e2fsck -f "$LOOP"
+ 1617  sudo resize2fs "$LOOP" 
+ 1618  sudo losetup -d "$LOOP"
+ 1619  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1620  cd /mnt/hostdisk/media/
+ 1621  ls
+ 1622  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/imagenet/resnet50.c ./
+ 1623  ls
+ 1624  rm -rf resnet50.c 
+ 1625  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1626  clear
+ 1627  cd ~
+ 1628  sudo umount /mnt/hostdisk
+ 1629  screen -r fsim0
+ 1630  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1631  sudo truncate -s 16G "$IMG" 
+ 1632  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1633  sudo e2fsck -f "$LOOP"
+ 1634  sudo resize2fs "$LOOP" 
+ 1635  sudo losetup -d "$LOOP"
+ 1636  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1637  cd /mnt/hostdisk/media/
+ 1638  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1639  ls
+ 1640  cd ~
+ 1641  sudo umount /mnt/hostdisk
+ 1642  screen -r fsim0
+ 1643  IMG=~/chipyard3/software/firemarshal/images/firechip/br-base/br-base.img
+ 1644  sudo truncate -s 16G "$IMG" 
+ 1645  LOOP=$(sudo losetup -f --show "$IMG") 
+ 1646  sudo e2fsck -f "$LOOP"
+ 1647  sudo resize2fs "$LOOP" 
+ 1648  sudo losetup -d "$LOOP"
+ 1649  sudo mount -o loop "$IMG" /mnt/hostdisk
+ 1650  cd ~
+ 1651  cd /mnt/hostdisk/media/
+ 1652  cp /home/esca/chipyard3/Kyu/multithread_2resnet.riscv ./
+ 1653  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1654  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1655  cd ~
+ 1656  sudo umount /mnt/hostdisk
+ 1657  screen -r fsim0
+ 1658  clear
+ 1659  cd /mnt/hostdisk/media/
+ 1660  cp /home/esca/chipyard3/jwlee/multithread_2resnets.riscv ./
+ 1661  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1662  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1663  ls
+ 1664  cd ~
+ 1665  sudo umount /mnt/hostdisk
+ 1666  screen -r fsim0
+ 1667  cd /mnt/hostdisk/media/
+ 1668  ls
+ 1669  cp /home/esca/chipyard3/jwlee/multithread_2resnets.riscv ./
+ 1670  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1671  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1672  ls
+ 1673  cd ~
+ 1674  sudo umount /mnt/hostdisk
+ 1675  screen -r fsim0
+ 1676  cd /mnt/hostdisk/media/
+ 1677  cp /home/esca/chipyard3/jwlee/multithread_2resnets.riscv ./
+ 1678  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1679  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1680  ls
+ 1681  cd ~
+ 1682  sudo umount /mnt/hostdisk
+ 1683  screen -r fsim0
+ 1684  cd chipyard3/
+ 1685  source env.sh
+ 1686  cd generators/gemmini/
+ 1687  ls
+ 1688  cd software/
+ 1689  ls
+ 1690  cd gemmini-rocc-tests/
+ 1691  ./build.sh 
+ 1692  cd ~
+ 1693  cd chipyard3/
+ 1694  ls
+ 1695  cd software/
+ 1696  ls
+ 1697  cd firemarshal/
+ 1698  ls
+ 1699  ./marshal clean br-base.json
+ 1700  ./marshal -v build br-base.json
+ 1701  clear
+ 1702  cd ../..
+ 1703  source env.sh
+ 1704  cd generators/gemmini/software/
+ 1705  ls
+ 1706  cd gemmini-rocc-tests/
+ 1707  ./build.sh 
+ 1708  cd chipyard3/
+ 1709  source env.sh
+ 1710  cd jwlee/
+ 1711  ls
+ 1712  clear
+ 1713  ls
+ 1714  riscv64-unknown-linux-gnu-gcc   -O2 -g   -Wall -Wextra   -pthread   multithread_2resnets.c   -o multithread_2resnets.riscv
+ 1715  ls
+ 1716  rm -rf multithread_2resnets.riscv 
+ 1717  riscv64-unknown-linux-gnu-gcc   -O2 -g   -Wall -Wextra   -pthread   multithread_2resnets.c   -o multithread_2resnets.riscv
+ 1718  ls
+ 1719  rm -rf multithread_2resnets.riscv 
+ 1720  riscv64-unknown-linux-gnu-gcc   -O2 -g   -Wall -Wextra   -pthread   multithread_2resnets.c   -o multithread_2resnets.riscv
+ 1721  ls
+ 1722  cd chipyard3/
+ 1723  source econda activate /home/esca/chipyard/.conda-lock-env
+ 1724  source env.sh
+ 1725  cd generators/gemmini/software/gemmini-rocc-tests/
+ 1726  ls
+ 1727  ./build.sh
+ 1728  screen -r fsim0
+ 1729  conda activate /home/esca/chipyard/.conda-lock-env
+ 1730  cd /mnt/hostdisk/media/
+ 1731  ls
+ 1732  cp /home/esca/chipyard3/jwlee/multithread_2resnets.c ./
+ 1733  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1734  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1735  cd ~
+ 1736  sudo umount /mnt/hostdisk
+ 1737  cd /mnt/hostdisk/media/
+ 1738  cp /home/esca/chipyard3/jwlee/multithread_2resnets.riscv ./
+ 1739  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-1-linux ./
+ 1740  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-2-linux ./
+ 1741  cp /home/esca/chipyard3/generators/gemmini/software/gemmini-rocc-tests/build/imagenet/resnet50-linux ./
+ 1742  ls
+ 1743  cd ~
+ 1744  sudo umount /mnt/hostdisk
+ 1745  history
+ 1746  cd chipyard3/jwlee/
+ 1747  history > hist.txt
