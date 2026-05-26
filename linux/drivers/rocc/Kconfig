@@ -1,0 +1,6 @@
+config ROCC_IRQ
+	bool "Minimal Rocket RoCC local interrupt driver"
+	depends on RISCV
+	default n
+	help
+	  Register a minimal local interrupt handler for Rocket RoCC.

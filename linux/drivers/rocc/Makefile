@@ -1,0 +1,1 @@
+obj-y += rocc_irq.o
